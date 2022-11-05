@@ -47,3 +47,7 @@ git clone https://github.com/MartinMadda/Final-Coderhouse.git .
 ```ps
 "Es muy importante el espacio y el .(punto) ya que asi nuestro repositorio no creara otras carpetas dentro de la nuestra."
 ```
+
+```
+El administrador debe autenticarse y es el unico autorizado de subir posteos, modificar los datos del negocio, las tarifas y la galeria.
+Cualquier usuario que ingrese a la pagina puede hacer una reserva, la cual por detras sera un mail al administrador que evaluara el pedido y respondera al mail cargado por el cliente con los pasos a seguir.
