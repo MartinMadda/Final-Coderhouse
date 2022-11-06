@@ -45,4 +45,5 @@ class ReservaCreateView(CreateView):
     fields = ['nombre','apellido' , 'telefono', 'mail','fecha_desde', 'fecha_hasta', 'cantidad_adultos', 'cantidad_menores', 'consulta']
     template_name = "panel/reserva_form.html"
     success_url = reverse_lazy('inicio')
+       
 

@@ -21,6 +21,10 @@ $ pip install django_crispy-forms
 ```bash
 $ pip install pillow 
 ```
+- Instalar ckeditor
+```bash
+$ pip install django-ckeditor
+```
 
 ## Verificar que este todo correctamente instalado
 

@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 from panel.views import  (SignUpView, BienvenidaView,
-                          SignInView, SignOutView)
+                          SignInView, SignOutView, ReservaCreateView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,5 @@ urlpatterns = [
     path('registrate/', SignUpView.as_view(), name='sign_up'),
     path('incia-sesion/', SignInView.as_view(), name='sign_in'),
     path('cerrar-sesion/', SignOutView.as_view(), name='sign_out'),
-    path('reserva_form/', SignOutView.as_view(), name='reserva'),
+    path('reserva', ReservaCreateView.as_view(), name='reserva'),
 ]
