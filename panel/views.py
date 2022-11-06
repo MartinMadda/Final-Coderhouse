@@ -5,11 +5,13 @@ from django.contrib.auth import login, authenticate
 
 from django.views.generic import CreateView, TemplateView
 
-from .models import Perfil
+from .models import Perfil, Reserva
 
 from .forms import SignUpForm
 
 from django.contrib.auth.views import LoginView, LogoutView
+
+from django.urls import reverse_lazy
 
 class SignInView(LoginView):
     template_name = 'panel/iniciar_sesion.html'
@@ -35,5 +37,12 @@ class SignUpView(CreateView):
         return redirect('/')
 
 class BienvenidaView(TemplateView):
-   template_name = 'panel/bienvenida.html'
- 
+   template_name = 'panel/home.html'
+
+
+class ReservaCreateView(CreateView):
+    model = Reserva
+    fields = ['nombre','apellido' , 'telefono', 'mail','fecha_desde', 'fecha_hasta', 'cantidad_adultos', 'cantidad_menores', 'consulta']
+    template_name = "panel/reserva_form.html"
+    success_url = reverse_lazy('inicio')
+
