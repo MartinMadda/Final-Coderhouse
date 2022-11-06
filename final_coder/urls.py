@@ -20,8 +20,10 @@ from panel.views import  (SignUpView, BienvenidaView,
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('home/', SignOutView.as_view(), name='inicio'),
     path('', BienvenidaView.as_view(), name='bienvenida'),
     path('registrate/', SignUpView.as_view(), name='sign_up'),
     path('incia-sesion/', SignInView.as_view(), name='sign_in'),
     path('cerrar-sesion/', SignOutView.as_view(), name='sign_out'),
+    path('reserva_form/', SignOutView.as_view(), name='reserva'),
 ]
