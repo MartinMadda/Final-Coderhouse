@@ -1,6 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.models import User
+from ckeditor.fields import RichTextField
 
 from .models import Perfil, Reserva
 
@@ -35,10 +36,12 @@ class ReservaForm(forms.ModelForm):
             'consulta',
         ]
         widgets = {
-            'nombre': forms.TextInput(attrs={'placeholder':'Nombre'}),
-            'apellido':forms.TextInput(attrs={'placeholder':'Apellido'}),
-            'telefono': forms.TextInput(attrs={'placeholder':'Telefono'}),
-            'mail': forms.EmailInput(attrs={'placeholder':'@mail.com'}),
-            'fecha_desde': forms.DateInput(attrs={'type':'date'}),
-            'fecha_hasta': forms.DateInput(attrs={'type':'date'}),
+            'nombre': forms.TextInput(attrs={'placeholder':'Nombre','class': 'form-control'}),
+            'apellido':forms.TextInput(attrs={'placeholder':'Apellido','class': 'form-control'}),
+            'telefono': forms.TextInput(attrs={'placeholder':'Telefono','class': 'form-control'}),
+            'mail': forms.EmailInput(attrs={'placeholder':'@mail.com','class': 'form-control'}),
+            'fecha_desde': forms.DateInput(attrs={'type':'date','class': 'form-control'}),
+            'fecha_hasta': forms.DateInput(attrs={'type':'date','class': 'form-control'}),
+            'cantidad_adultos':forms.NumberInput(attrs={'placeholder':'Ingrese la cantidad de adultos','class': 'form-control'}),
+            'cantidad_menores':forms.NumberInput(attrs={'placeholder':'Ingrese la cantidad de menores','class':'form-control'}),
         }
