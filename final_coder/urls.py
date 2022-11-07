@@ -26,4 +26,5 @@ urlpatterns = [
     path('incia-sesion/', SignInView.as_view(), name='sign_in'),
     path('cerrar-sesion/', SignOutView.as_view(), name='sign_out'),
     path('reserva/', ReservaCreateView.as_view(), name='reserva'),
-]
+    
+    ]

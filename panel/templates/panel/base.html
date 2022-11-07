@@ -27,11 +27,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="">Galeria</a>
                 </li>
-
+              {% if user.is_authenticated %}
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'reserva' %}">Reservas</a>
                 </li>
-
+              {% else %}
+                <li>
+                  <a class="nav-link" href="{% url 'sign_up' %}">Registrate para reservar</a>
+                </li>
+              {% endif %}
+              
             </ul>
             <div class="dropdown">
                 <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
@@ -41,7 +46,7 @@
                 {% if user.is_authenticated %}
                     <h6>Hola {{ user.username }}!</h6>
                     <div class="mb-3">
-                        <a href="">Ver Perfil</a>
+                        <a href="{% url 'perfil' %}">Ver Perfil</a>
                     </div>
                     <div class="mb-3">
                         <a href="{% url 'sign_out' %}">Cerrar sesión</a>
