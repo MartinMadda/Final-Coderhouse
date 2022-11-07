@@ -7,7 +7,7 @@ from django.views.generic import CreateView, TemplateView
 
 from .models import Perfil, Reserva
 
-from .forms import SignUpForm
+from .forms import SignUpForm, ReservaForm
 
 from django.contrib.auth.views import LoginView, LogoutView
 
@@ -42,7 +42,7 @@ class BienvenidaView(TemplateView):
 
 class ReservaCreateView(CreateView):
     model = Reserva
-    fields = ['nombre','apellido' , 'telefono', 'mail','fecha_desde', 'fecha_hasta', 'cantidad_adultos', 'cantidad_menores', 'consulta']
+    form_class = ReservaForm
     template_name = "panel/reserva_form.html"
     success_url = reverse_lazy('inicio')
        

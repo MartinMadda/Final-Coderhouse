@@ -36,7 +36,7 @@ class Reserva(models.Model):
     fecha_hasta = models.DateTimeField()
     cantidad_adultos = models.IntegerField()
     cantidad_menores = models.IntegerField()
-    consulta = RichTextField()
+    consulta = RichTextField(blank=True, null=True)
 
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
