@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 {% load static %}
 <html lang="en">
+<title>{% block tab%}{% endblock %}</title>
 <head>
     
     <meta charset="UTF-8">
@@ -29,10 +30,24 @@
               </li>
               {% if user.is_authenticated %}
                 <li class="nav-item">
+<<<<<<< HEAD
                     <a class="nav-link" href="{% url 'reserva' %}">Contacto</a>
                 </li>
               {% endif %}
               
+=======
+                  <a class="nav-link" href="{% url 'galeria' %}">Galería</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'reserva' %}">Reservas</a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" href="{% url 'posteos' %}">Posteos</a>
+                </li>
+
+>>>>>>> d4fe9fc66a0565f15beff96bbb1b7fdb99264753
             </ul>
             <div class="dropdown">
                 {% if user.is_authenticated %}

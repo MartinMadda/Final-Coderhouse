@@ -1,0 +1,36 @@
+{% extends "panel/base.html" %}
+{% block tab%}Galeria{% endblock %}
+{% block title%} Galeria de imagenes {% endblock %}
+
+{% block content %}
+
+  <div class="album py-5 bg-light">
+    <div class="container">
+
+      <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        {% for posteo in posteos %}
+        <div class="col">
+          <div class="card shadow-sm">
+            <img height="225" src="{{ posteo.foto.url }}" />  
+            <div class="card-body">
+              <h5 class="card-title">{{posteo.titulo}}</h5>
+              <p class="card-text">{{posteo.descripcion_corta}}</p>
+              <div class="d-flex justify-content-between align-items-end">
+                <div class="btn-group">
+                {%if user.can_edit%}
+                  <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
+                {% endif %}
+                </div>
+                <div class="btn-group"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+
+{% endblock %}
+
+

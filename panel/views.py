@@ -1,9 +1,17 @@
 from django.shortcuts import render, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
+<<<<<<< HEAD
 from django.views.generic import CreateView, TemplateView
 from django.http import HttpRequest, HttpResponse
 from .models import Perfil, Reserva
+=======
+
+from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView
+
+from .models import Perfil, Reserva, Posteo
+
+>>>>>>> d4fe9fc66a0565f15beff96bbb1b7fdb99264753
 from .forms import SignUpForm, ReservaForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
@@ -45,4 +53,34 @@ class ReservaCreateView(CreateView):
 
 class Perfil(TemplateView):
    template_name = 'panel/mi_perfil.html'
+
+class PosteosView(ListView):
+    
+    queryset = Posteo.objects.all()
+    template_name = "panel/posteo_list.html"    
+    context_object_name = "posteos"
+
+class GaleriaView(ListView):
+    
+    queryset = Posteo.objects.all()
+    template_name = "panel/galeria.html"
+    context_object_name = "posteos"
+
+class PosteoCreateView(CreateView):
+    model = Posteo
+    fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
+    template_name = "panel/posteo_form.html"
+    success_url = reverse_lazy('posteos')
+
+class PosteoUpdateView(UpdateView):
+    model = Posteo
+    fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
+    template_name = "panel/posteo_form.html"
+    success_url = reverse_lazy('posteos')
+
+class PosteoDeleteView(DeleteView):
+    model = Posteo
+    template_name = "panel/posteo_confirm_delete.html"
+    success_url = reverse_lazy('posteos')
+
 
