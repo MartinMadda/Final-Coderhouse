@@ -3,9 +3,9 @@ from django.shortcuts import render, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 
-from django.views.generic import CreateView, TemplateView
+from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView
 
-from .models import Perfil, Reserva
+from .models import Perfil, Reserva, Posteo
 
 from .forms import SignUpForm, ReservaForm
 
@@ -46,4 +46,34 @@ class ReservaCreateView(CreateView):
     template_name = "panel/reserva_form.html"
     success_url = reverse_lazy('inicio')
        
+
+class PosteosView(ListView):
+    
+    queryset = Posteo.objects.all()
+    template_name = "panel/posteo_list.html"    
+    context_object_name = "posteos"
+
+class GaleriaView(ListView):
+    
+    queryset = Posteo.objects.all()
+    template_name = "panel/galeria.html"
+    context_object_name = "posteos"
+
+class PosteoCreateView(CreateView):
+    model = Posteo
+    fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
+    template_name = "panel/posteo_form.html"
+    success_url = reverse_lazy('posteos')
+
+class PosteoUpdateView(UpdateView):
+    model = Posteo
+    fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
+    template_name = "panel/posteo_form.html"
+    success_url = reverse_lazy('posteos')
+
+class PosteoDeleteView(DeleteView):
+    model = Posteo
+    template_name = "panel/posteo_confirm_delete.html"
+    success_url = reverse_lazy('posteos')
+
 

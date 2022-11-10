@@ -14,9 +14,12 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
+from django.conf import settings
+from django.conf.urls.static import static
 from django.urls import path
-from panel.views import  (SignUpView, BienvenidaView,
-                          SignInView, SignOutView, ReservaCreateView)
+from panel.views import  (SignUpView, BienvenidaView, GaleriaView,
+                          SignInView, SignOutView, ReservaCreateView,
+                          PosteosView,PosteoCreateView, PosteoUpdateView, PosteoDeleteView)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -26,4 +29,11 @@ urlpatterns = [
     path('incia-sesion/', SignInView.as_view(), name='sign_in'),
     path('cerrar-sesion/', SignOutView.as_view(), name='sign_out'),
     path('reserva/', ReservaCreateView.as_view(), name='reserva'),
+    path('posteo/create', PosteoCreateView.as_view(), name='posteo-create'),
+    path('posteo/<pk>/update', PosteoUpdateView.as_view(), name ="posteo-update"),
+    path('posteos/', PosteosView.as_view(), name ="posteos"),
+    path('posteos/<pk>/delete', PosteoDeleteView.as_view(), name ="posteo-delete"),
+    path('galeria/', GaleriaView.as_view(), name ="galeria"),
 ]
+
+urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
