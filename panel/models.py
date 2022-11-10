@@ -12,7 +12,7 @@ class Posteo(models.Model):
     titulo = models.CharField(max_length=30)
     descripcion_corta = models.CharField(max_length=200)
     contenido = RichTextField()
-    foto = models.ImageField(upload_to="posts", null=True, blank=True)
+    foto = models.ImageField(upload_to="img", null=True, blank=True)
     es_una_promo = models.BooleanField()
     fecha_creacion = models.DateTimeField(auto_now_add=True)
 
@@ -36,7 +36,7 @@ class Reserva(models.Model):
     fecha_hasta = models.DateTimeField()
     cantidad_adultos = models.IntegerField()
     cantidad_menores = models.IntegerField()
-    consulta = RichTextField()
+    consulta = RichTextField(default="Ingrese su consulta aquí")
 
 class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
