@@ -1,0 +1,27 @@
+{% extends "panel/base.html" %}
+
+{% block title %}Perfil{% endblock %}
+
+{% block content %} 
+<h1><u>Mi Perfil</u></h1>
+<table class="table">
+    <thead>
+    <tr>
+        <th scope="col">Nombre Usuario</th>
+        <th scope="col">Nombre</th>
+        <th scope="col">Apellido</th>
+        <th scope="col">Email/Correo</th>
+
+    </tr>
+    </thead>
+    <tbody class="table-group-divider">
+
+   
+        <tr>
+            <td>{{ user.username }}</td>
+            <td>{{ user.first_name}}</td>
+            <td>{{ user.last_name }}</td>
+            <td>{{ user.email }}</td>
+
+        </tr>
+{% endblock content %}

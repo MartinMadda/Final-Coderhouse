@@ -76,4 +76,5 @@ class PosteoDeleteView(DeleteView):
     template_name = "panel/posteo_confirm_delete.html"
     success_url = reverse_lazy('posteos')
 
-
+class Miperfil(TemplateView):
+   template_name = 'panel/perfil.html'
