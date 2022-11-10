@@ -23,7 +23,7 @@
                
 
               <li class="nav-item">
-                <a class="nav-link" href="">Inicio</a>
+                <a class="nav-link" href="{% url 'inicio' %}">Inicio</a>
               </li>
               
 
@@ -41,18 +41,19 @@
             <div class="dropdown">
                 {% if user.is_authenticated %}
                   <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                    Mi Perfil
+                    <img src="../../static/img/person-circle.svg" alt="" style="color:white; width: 30px ;height: 30px;"> 
                   </button>
                 {% else %}
                     <button type="button" class="btn btn-primary dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false" data-bs-auto-close="outside">
-                      Iniciar sesión
+                      <img src="../../static/img/person-circle.svg" alt="" style="color:white;width: 30px ;height: 30px;" > 
                     </button>
                 {% endif %}
                 <form class="dropdown-menu p-4">
                 {% if user.is_authenticated %}
                     <h6>Hola {{ user.username }}!</h6>
+                    <hr>
                     <div class="mb-3">
-                        <a href="">Ver Perfil</a>
+                        <a href="{% url 'perfil' %}">Ver Perfil</a>
                     </div>
                     <div class="mb-3">
                         <a href="{% url 'sign_out' %}">Cerrar sesión</a>
