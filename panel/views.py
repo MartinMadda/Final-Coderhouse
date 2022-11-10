@@ -1,12 +1,17 @@
 from django.shortcuts import render, HttpResponse
+
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView
+
+from django.views.generic import CreateView, TemplateView
+
 from .models import Perfil, Reserva, Posteo
+
 from .forms import SignUpForm, ReservaForm
+
 from django.contrib.auth.views import LoginView, LogoutView
+
 from django.urls import reverse_lazy
-from django.contrib.auth.models import User
 
 class SignInView(LoginView):
     template_name = 'panel/iniciar_sesion.html'
@@ -30,7 +35,6 @@ class SignUpView(CreateView):
         usuario = authenticate(username=usuario, password=password)
         login(self.request, usuario)
         return redirect('/')
-
 
 class BienvenidaView(TemplateView):
    template_name = 'panel/home.html'
@@ -70,6 +74,5 @@ class PosteoDeleteView(DeleteView):
     model = Posteo
     template_name = "panel/posteo_confirm_delete.html"
     success_url = reverse_lazy('posteos')
+       
 
-class Miperfil(TemplateView):
-   template_name = 'panel/perfil.html'
