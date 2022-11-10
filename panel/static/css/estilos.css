@@ -1,5 +1,7 @@
 body {
-    padding: 20px;
+    padding: 15px;
     background-image: url("../img/mar.jpg");
     background-size: cover;
-}
+    background-position: auto;
+    background-repeat: no-repeat;
+  }
