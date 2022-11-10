@@ -43,5 +43,6 @@ class ReservaCreateView(CreateView):
     template_name = "panel/reserva_form.html"
     success_url = reverse_lazy('inicio')
 
-       
+class Perfil(TemplateView):
+   template_name = 'panel/mi_perfil.html'
 
