@@ -19,7 +19,7 @@ from django.conf.urls.static import static
 from django.urls import path
 from panel.views import  (SignUpView, BienvenidaView, GaleriaView,
                           SignInView, SignOutView, ReservaCreateView,
-                          PosteosView,PosteoCreateView, PosteoUpdateView, PosteoDeleteView)
+                          PosteosView,PosteoCreateView, PosteoUpdateView, PosteoDeleteView,Miperfil)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -34,6 +34,8 @@ urlpatterns = [
     path('posteos/', PosteosView.as_view(), name ="posteos"),
     path('posteos/<pk>/delete', PosteoDeleteView.as_view(), name ="posteo-delete"),
     path('galeria/', GaleriaView.as_view(), name ="galeria"),
+    path('Perfilazo', Miperfil.as_view(), name="perfil"),
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+
