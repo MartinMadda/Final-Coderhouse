@@ -6,23 +6,22 @@
 
   <div class="album py-5 data-bs-toggle">
     <div class="container">
+      
 
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+        
         {% for posteo in posteos %}
         <div class="col">
           <div class="card shadow-sm">
-            <img height="225" src="{{ posteo.foto.url }}" />  
-            <hr>
+            <img height="225" class="card-img-top"    src="{{ posteo.foto.url }}" />  
             <div class="card-body">
-              
-              <h5 class="card-title"><u>{{posteo.titulo}}</u></h5>
-              <a  style="float: right;" type="button" class="btn btn-sm btn-outline-secondary col-md-3 row g-3" href="{% url 'reserva' %}">Reservar</a>
+              <h2 class="card-title"><u>{{posteo.titulo}}</u></h2>
               <p class="card-text">{{posteo.descripcion_corta}}</p>
               
-              
+              <a class="btn btn-primary" href="{% url 'reserva' %}">Reservar →</a> <a class="btn btn-primary" href="{% url 'reserva' %}">Detalles →</a>
               <div class="d-flex justify-content-between align-items-end">
                 <div class="btn-group">
-                {%if user.can_edit%}
+                {% if user.can_edit %}
                   <button type="button" class="btn btn-sm btn-outline-secondary">Editar</button>
                 {% endif %}
                 </div>
@@ -32,9 +31,11 @@
           </div>
         </div>
         {% endfor %}
+
       </div>
     </div>
   </div>
+  
 
 {% endblock %}
 
