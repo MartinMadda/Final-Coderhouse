@@ -79,3 +79,6 @@ class PosteoDetailView(DetailView):
     model = Posteo
     template_name = "panel/posteo_detalle.html"
 
+class About(TemplateView):
+    template_name = "panel/about.html"
+
