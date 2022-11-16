@@ -1,7 +1,7 @@
 from django.shortcuts import render, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
-from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView
+from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView, DetailView
 from .models import Perfil, Reserva, Posteo
 from .forms import SignUpForm, ReservaForm
 from django.contrib.auth.views import LoginView, LogoutView
@@ -73,3 +73,9 @@ class PosteoDeleteView(DeleteView):
 
 class Miperfil(TemplateView):
    template_name = 'panel/perfil.html'
+
+
+class PosteoDetailView(DetailView):
+    model = Posteo
+    template_name = "panel/posteo_detalle.html"
+
