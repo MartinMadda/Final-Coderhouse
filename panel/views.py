@@ -7,6 +7,9 @@ from .forms import SignUpForm, ReservaForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
 from django.contrib.auth.models import User
+from django.utils.decorators import method_decorator
+from django.contrib.admin.views.decorators import staff_member_required
+from django.contrib.auth.decorators import login_required
 
 class SignInView(LoginView):
     template_name = 'panel/iniciar_sesion.html'
@@ -35,12 +38,13 @@ class SignUpView(CreateView):
 class BienvenidaView(TemplateView):
    template_name = 'panel/home.html'
 
-
+@method_decorator(login_required, name='dispatch')
 class ReservaCreateView(CreateView):
     model = Reserva
     form_class = ReservaForm
     template_name = "panel/reserva_form.html"
     success_url = reverse_lazy('inicio')
+
 
 class PosteosView(ListView):
     
@@ -54,18 +58,21 @@ class GaleriaView(ListView):
     template_name = "panel/galeria.html"
     context_object_name = "posteos"
 
+@method_decorator(staff_member_required, name='dispatch')
 class PosteoCreateView(CreateView):
     model = Posteo
     fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
     template_name = "panel/posteo_form.html"
     success_url = reverse_lazy('posteos')
 
+@method_decorator(staff_member_required, name='dispatch')
 class PosteoUpdateView(UpdateView):
     model = Posteo
     fields = ['titulo','descripcion_corta' , 'contenido', 'foto','es_una_promo']
     template_name = "panel/posteo_form.html"
     success_url = reverse_lazy('posteos')
 
+@method_decorator(staff_member_required, name='dispatch')
 class PosteoDeleteView(DeleteView):
     model = Posteo
     template_name = "panel/posteo_confirm_delete.html"
