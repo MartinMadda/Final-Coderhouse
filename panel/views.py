@@ -2,7 +2,7 @@ from django.shortcuts import render, HttpResponse
 from django.shortcuts import render, redirect
 from django.contrib.auth import login, authenticate
 from django.views.generic import CreateView, TemplateView, ListView, UpdateView, DeleteView, DetailView
-from .models import Perfil, Reserva, Posteo
+from .models import Perfil, Reserva, Posteo, Tarifa
 from .forms import SignUpForm, ReservaForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse_lazy
@@ -89,3 +89,29 @@ class PosteoDetailView(DetailView):
 class About(TemplateView):
     template_name = "panel/about.html"
 
+
+class TarifaView(ListView):
+    
+    queryset = Tarifa.objects.all()
+    template_name = "panel/tarifa_list.html"    
+    context_object_name = "tarifas"
+
+@method_decorator(staff_member_required, name='dispatch')
+class TarifaCreateView(CreateView):
+    model = Tarifa
+    fields = ['periodo','precio' , 'cantidad_maxima_personas']
+    template_name = "panel/tarifa_form.html"
+    success_url = reverse_lazy('tarifas')
+
+@method_decorator(staff_member_required, name='dispatch')
+class TarifaUpdateView(UpdateView):
+    model = Tarifa
+    fields = ['periodo','precio' , 'cantidad_maxima_personas']
+    template_name = "panel/tarifa_form.html"
+    success_url = reverse_lazy('tarifas')
+
+@method_decorator(staff_member_required, name='dispatch')
+class TarifaDeleteView(DeleteView):
+    model = Posteo
+    template_name = "panel/tarfia_confirm_delete.html"
+    success_url = reverse_lazy('tarifas')
