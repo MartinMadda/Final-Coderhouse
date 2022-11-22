@@ -20,6 +20,7 @@ class SignOutView(LogoutView):
 class SignUpView(CreateView):
     model = Perfil
     form_class = SignUpForm
+    
 
     def form_valid(self, form):
         '''
@@ -52,10 +53,18 @@ class PosteosView(ListView):
     template_name = "panel/posteo_list.html"    
     context_object_name = "posteos"
 
+
+
 class GaleriaView(ListView):
     
     queryset = Posteo.objects.all()
     template_name = "panel/galeria.html"
+    context_object_name = "posteos"
+
+class Galeria2View(ListView):
+    
+    queryset = Posteo.objects.filter(es_una_promo=True)
+    template_name = 'panel/home.html'
     context_object_name = "posteos"
 
 @method_decorator(staff_member_required, name='dispatch')

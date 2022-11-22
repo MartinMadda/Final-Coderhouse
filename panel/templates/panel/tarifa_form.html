@@ -11,7 +11,7 @@
 {% block content %}
 <main class="flex-shrink-0">
     <div class="container">
-        <a type="button" href = "{% url 'bienvenida' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Pagina Principal</a>
+        <a type="button" href = "{% url 'galeria' %}" style="margin-top: 1em;" class="btn btn-sm btn-outline-primary" >Pagina Principal</a>
         <form method="post" enctype="multipart/form-data" style="margin-top: 1em;">{% csrf_token %}
             {{ form.as_p }}
             {{form.media}}
