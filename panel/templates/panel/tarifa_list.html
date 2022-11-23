@@ -23,8 +23,8 @@
             <td>{{posteo.precio}}</td>
             <td>{{posteo.cantidad_maxima_personas}}</td>
             <td>
-                <a type="button" href="{% url 'tafifa-update' posteo.id %}" class="btn btn-sm btn-outline-warning "><img src="../../static/img/pencil.svg" alt=""></a>
-                <a type="button" href="{% url 'tarifa-delete' posteo.id %}" class="btn btn-sm btn-outline-danger"><img src="./../../static/img/trash.svg" alt=""></a>
+                <a type="button" href="{% url 'tarifa-update' 'posteo.id' %}" class="btn btn-sm btn-outline-warning "><img src="../../static/img/pencil.svg" alt=""></a>
+                <a type="button" href="{% url 'tarifa-delete' 'posteo.id' %}" class="btn btn-sm btn-outline-danger"><img src="./../../static/img/trash.svg" alt=""></a>
             </td>
             </tr>
           {% endfor %}
