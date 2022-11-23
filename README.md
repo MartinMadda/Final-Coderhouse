@@ -74,9 +74,9 @@ Python 3.10.7
 >>>
 ```
 
-### Lo primero que debemos hacer es crear nuestro repositorio en github  https://github.com/MartinMadda/Final-Coderhouse.git.
+## Lo primero que debemos hacer es crear nuestro repositorio en github  https://github.com/MartinMadda/Final-Coderhouse.git.
 
-### Luego en VScode vamos a crear una nueva carpeta y vamos a abrir la terminal para clonar nuestro repositorio y asi poder trabajar en él de la siguiente manera:
+## Luego en VScode vamos a crear una nueva carpeta y vamos a abrir la terminal para clonar nuestro repositorio y asi poder trabajar en él de la siguiente manera:
 
 ```ps
 git clone https://github.com/MartinMadda/Final-Coderhouse.git .
