@@ -1,7 +1,7 @@
 
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400&display=swap');
 *{
-
+    
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -13,7 +13,7 @@ body{
     font-family: 'Poppins', sans-serif;
 }
 .logo_img{
-
+    
     width: 5%;
     position: absolute;
     left: 100px;
@@ -24,7 +24,8 @@ body{
 
 .nav{
 
-width: 300px;
+width: 15%;
+
 
 }
 .nav_link{
@@ -35,7 +36,7 @@ width: 300px;
 
 }
 .nav_link--inside{
-
+    
     border-radius: 6px;
     padding-left: 20px;
     text-align: left;
@@ -112,4 +113,19 @@ width: 300px;
     list-style: none;
     transition: height .4s;
     height: 0;
+}
+
+.derechos{
+    text-decoration: underline;
+    margin: 10px;
+    position: relative;
+    top :250px;
+    right: 20px;
+    opacity: 0.5;
+    text-align: center;
+}
+.form{
+
+    position: relative;
+    text-align: center;
 }

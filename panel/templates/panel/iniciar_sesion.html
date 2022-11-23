@@ -6,7 +6,7 @@
     <form method="POST">
         {% csrf_token %}
         {{ form.as_p }}
-        <a href="{% url 'sign_up' %}">Registrar</a> <span>|</span> <a href="">Olvide mi contraseña</a>
+        <a href="{% url 'sign_up' %}">Registrar</a> <span>|</span> <a href="{% url 'mantenimiento' %}">Olvide mi contraseña</a>
         <input type="submit" name="submit">
     </form>
 

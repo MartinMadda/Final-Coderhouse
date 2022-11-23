@@ -17,10 +17,10 @@ from django.contrib import admin
 from django.conf import settings
 from django.conf.urls.static import static
 from django.urls import path
-from panel.views import  (SignUpView, BienvenidaView, GaleriaView,
+from panel.views import  (SignUpView,GaleriaView,
                           SignInView, SignOutView, ReservaCreateView,
                           PosteosView,PosteoCreateView, PosteoUpdateView, PosteoDeleteView,Miperfil, PosteoDetailView, About,
-                           TarifaCreateView, TarifaUpdateView, TarifaDeleteView, TarifaView, Galeria2View)
+                           TarifaCreateView, TarifaUpdateView, TarifaDeleteView, TarifaView, Mantenimiento)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -41,6 +41,7 @@ urlpatterns = [
     path('tarifa/<pk>/update', TarifaUpdateView.as_view(), name ="tarifa-update"),
     path('tarifas/', TarifaView.as_view(), name ="tarifas"),
     path('tarifas/<pk>/delete', TarifaDeleteView.as_view(), name ="tarifa-delete"),
+    path('mantenimiento/', Mantenimiento.as_view(), name="mantenimiento")
 ]
 
 urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

@@ -60,12 +60,7 @@ class GaleriaView(ListView):
     queryset = Posteo.objects.all()
     template_name = "panel/galeria.html"
     context_object_name = "posteos"
-
-class Galeria2View(ListView):
     
-    queryset = Posteo.objects.filter(es_una_promo=True)
-    template_name = 'panel/home.html'
-    context_object_name = "posteos"
 
 @method_decorator(staff_member_required, name='dispatch')
 class PosteoCreateView(CreateView):
@@ -124,3 +119,6 @@ class TarifaDeleteView(DeleteView):
     model = Posteo
     template_name = "panel/tarfia_confirm_delete.html"
     success_url = reverse_lazy('tarifas')
+
+class Mantenimiento(TemplateView):
+   template_name = 'panel/Proximamente.html'
