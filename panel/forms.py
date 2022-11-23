@@ -6,7 +6,6 @@ from ckeditor.fields import RichTextField
 from .models import Perfil, Reserva
 
 class SignUpForm(UserCreationForm):
-    
     first_name = forms.CharField(max_length=140, required=True)
     last_name = forms.CharField(max_length=140, required=False)
     email = forms.EmailField(required=True)

@@ -42,6 +42,8 @@ class Perfil(models.Model):
     usuario = models.OneToOneField(User, on_delete=models.CASCADE)
     bio = models.CharField(max_length=255, blank=True)
     web = models.URLField(blank=True)
+class FotoPerfil(models.Model):
+    foto = models.ImageField(upload_to="img", null=True, blank=True)
 
     # Python 3
     def __str__(self): 
