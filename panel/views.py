@@ -121,6 +121,6 @@ class TarifaUpdateView(UpdateView):
 
 @method_decorator(staff_member_required, name='dispatch')
 class TarifaDeleteView(DeleteView):
-    model = Posteo
-    template_name = "panel/tarfia_confirm_delete.html"
+    model = Tarifa
+    template_name = "panel/tarifa_confirm_delete.html"
     success_url = reverse_lazy('tarifas')
