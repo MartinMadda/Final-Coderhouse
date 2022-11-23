@@ -4,9 +4,6 @@ from django.contrib.auth.models import User
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 
-class Administrador(models.Model):
-    nombre = models.CharField(max_length=30)
-    apellido = models.CharField(max_length=30)
 
 class Posteo(models.Model):
     titulo = models.CharField(max_length=30)
